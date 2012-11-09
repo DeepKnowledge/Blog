@@ -1,10 +1,15 @@
+{% extends "base.html" %}
 {% block content %}
-
-    <h2>Posts tagged : {{ tag }}</h2>
-
-    {%  for post in posts  %}
-
-        <p>{{ post.create_at|date:"m-d-Y" }} <a href="/blog/{{ post.id }}"> {{ post.title }}</a></p>
-
-    {% endfor %}
+<div class="container-fluid">
+			<div class="row-fluid">Posts tagged : {{ tag }}</div>
+			<div class="row-fluid">
+					 {%  for post in posts  %}
+						<blockquote >
+						  <p><a href="/blog/{{ post.id }}"> {{ post.title }}</a></p>
+						  <small>{{ post.create_at|date:"Y-m-d" }} </small>
+						</blockquote>
+					{% endfor %}
+			</div>
+			
+</div>
 {% endblock %}
