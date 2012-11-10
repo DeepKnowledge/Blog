@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.views.generic import ListView,DetailView
 from blog.models import Post
-from blog.models import Blogfeed
+from feeds import Blogfeed
 
 urlpatterns = patterns('blog.views',
     url(r'^$',ListView.as_view(queryset=Post.objects.all().order_by("-create_at")[:2],template_name="blog.html")),
@@ -10,5 +10,5 @@ urlpatterns = patterns('blog.views',
 
     url(r"tag/(?P<tag>\w+)$", 'tagpages'),
     url(r"feed/",Blogfeed()),
-
+    url(r'logout',"logout_view"),
 )

@@ -16,7 +16,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': ROOT_PATH+"\\blog.db",                      # Or path to database file if using sqlite3.
+        'NAME':"blog.db",                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -116,8 +116,8 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
 #    'admin_bootstrap',
-    
-    
+#    'grappelli.dashboard',
+    'grappelli',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -128,7 +128,6 @@ INSTALLED_APPS = (
     'crispy_forms',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    ""
     'taggit',
     'blog',
 )
