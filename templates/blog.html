@@ -2,15 +2,17 @@
 
 
 {% block content %}
-
-    <address>
-        <strong>Full Name</strong><br>
-        <a href="mailto:#">first.last@gmail.com</a>
-    </address>
+{##}
+{#    <address>#}
+{#        <strong>Ryan Wang</strong><br>#}
+{#        <a href="mailto:#">wanglun02@gmail.com</a>#}
+{#    </address>#}
 
     <div class="container-fluid">
 			<div class="row-fluid">
-					<dl class="well">
+                <input type="button" value="add new post" size="50*20" formaction="./post/add">
+
+                <dl class="well">
 					     {%  for post in object_list  %}
 					    	<dt>
 					    		<a href="/blog/{{ post.id }}"> {{ post.title }}</a>
@@ -26,8 +28,10 @@
 					 	 	<dd>
 					 	 		 {{ post.create_at|date:"Y-m-d" }}
 					 	 	</dd>
+                            <dd>========================================</dd>
 						{% endfor %}
 					</dl>
 			</div>
-	</div>
+
+        </div>
 {% endblock %}

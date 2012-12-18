@@ -32,3 +32,13 @@ def user_login(request):
 
 def logout_view(request):
     return logout(request)
+
+from django.http import HttpResponse
+
+def time(request,offset):
+    print offset
+    return HttpResponse("Hello")
+
+def post_add(request):
+#    return HttpResponse("POST_Add");
+    return render_to_response("post_add.html")
