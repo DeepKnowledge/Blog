@@ -3,7 +3,8 @@ from blog.models import Post
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.admin.views.decorators import staff_member_required
-
+from blog.forms import PostForm
+from django.shortcuts import render
 
 def list(request):
     return ListView.as_view(query=Post.objects.all().order_by('-create_at'))
@@ -40,5 +41,19 @@ def time(request,offset):
     return HttpResponse("Hello")
 
 def post_add(request):
-#    return HttpResponse("POST_Add");
-    return render_to_response("post_add.html")
+    if request.user.is_authenticated():
+        print "request.user.is_authenticated() == 1"
+    else:
+        print "request.user.is_authenticated() == 0"
+
+    print request.user.last_login
+    print request.method
+
+    if request.method == 'POST': # If the form has been submitted...
+        form = PostForm(data=request.POST)
+        new_blog = form.save()
+#        return render_to_response("blog/post_add.html",{"post_form": form})
+        return HttpResponse("POST")
+    else:
+        form = PostForm()
+        return render_to_response("blog/post_add.html",{"post_form": form})

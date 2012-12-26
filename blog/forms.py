@@ -3,5 +3,7 @@ from django.forms import ModelForm
 from models import Post
 
 class PostForm(ModelForm):
-    class meta:
+    class Meta:
         model = Post
+
+

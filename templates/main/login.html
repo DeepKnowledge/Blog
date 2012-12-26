@@ -29,8 +29,10 @@
         {% endfor %}
     {% endif %}
 
+    {% load crispy_forms_tags %}
+
     <div id="content-main">
-        <form id="login-form" method="post" action="/login">{%  csrf_token %}
+        <form id="login-form" method="post" action="/login" class="uniForm blueForms" >{%  csrf_token %}
             {{ login_form.as_p }}
             <input type="submit" value = "login" />
         </form>

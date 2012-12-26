@@ -100,6 +100,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 )
 
 ROOT_URLCONF = 'mysite.urls'
@@ -117,7 +118,7 @@ TEMPLATE_DIRS = (
 INSTALLED_APPS = (
 #    'admin_bootstrap',
 #    'grappelli.dashboard',
-    'grappelli',
+#    'grappelli',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -131,6 +132,7 @@ INSTALLED_APPS = (
     'taggit',
     'main',
     'blog',
+    "debug_toolbar",
 )
 
 # A sample logging configuration. The only tangible logging
@@ -161,3 +163,18 @@ LOGGING = {
         },
     }
 }
+
+DEBUG_TOOLBAR_PANELS = (
+    'debug_toolbar.panelsTEMPLATE_CONTEXT_PROCESSORS.version.VersionDebugPanel',
+    'debug_toolbar.panels.timer.TimerDebugPanel',
+    'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
+    'debug_toolbar.panels.headers.HeaderDebugPanel',
+    'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
+    'debug_toolbar.panels.template.TemplateDebugPanel',
+    'debug_toolbar.panels.sql.SQLDebugPanel',
+    'debug_toolbar.panels.signals.SignalDebugPanel',
+    'debug_toolbar.panels.logger.LoggingPanel',
+)
+
+
+APPEND_SLASH = True
